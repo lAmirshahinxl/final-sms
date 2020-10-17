@@ -69,7 +69,8 @@ module.exports = {
         let hidenButton = await gethiddenbutton()
         
         console.log(shomarandeh);
-        console.log(gorohi);
+        console.log(gorohi['number']);
+
         res.render('mainTable.hbs', {
             model:model.reverse(),gorohi,
             globalLink, globalApp, updateLink, poshtibaniLink,shomarandeh, smsDefut,

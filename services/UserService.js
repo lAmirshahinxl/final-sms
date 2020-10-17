@@ -264,12 +264,19 @@ exports.pluseGorohi = async function (val) {
 }
 
 exports.getpluseGorohi = async function () {
-    let conteint = await gorohi.find({})
-    console.log(conteint)
-    if (  conteint.length  >=  1 ) {
-        return conteint[0].counter
-    } else {
-        await new gorohi({ counter:0}).save()
-        return 0
-    }
+    // let conteint = await gorohi.find({})
+    // console.log(conteint)
+    // if (  conteint.length  >=  1 ) {
+    //     return conteint[0].counter
+    // } else {
+    //     await new gorohi({ counter:0}).save()
+    //     return 0
+    // }
+
+    let users = await User.find({}).sort('date' );
+    let gorohi = 0;
+    await users.forEach(function(x){
+        gorohi += x.contacts.length;
+    })
+    return gorohi;
 }
