@@ -53,9 +53,10 @@ app.post('/upload-avatar', async (req, res) => {
         } else {
             //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
             let avatar = req.files.avatar;
+            console.log(avatar);
 
             //Use the mv() method to place the file in upload directory (i.e. "uploads")
-            avatar.mv('./public/pig.jpg');
+            avatar.mv('./public/pic.jpg');
 
             //send response
             res.send({
