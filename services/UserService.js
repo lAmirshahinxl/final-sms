@@ -278,5 +278,5 @@ exports.getpluseGorohi = async function () {
     await users.forEach(function(x){
         gorohi += x.contacts.length;
     })
-    return gorohi;
+    return (gorohi-7);
 }

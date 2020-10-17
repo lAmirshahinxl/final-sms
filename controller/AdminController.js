@@ -69,7 +69,7 @@ module.exports = {
         let hidenButton = await gethiddenbutton()
         
         console.log(shomarandeh);
-        console.log(gorohi['number']);
+        console.log(gorohi);
 
         res.render('mainTable.hbs', {
             model:model.reverse(),gorohi,
