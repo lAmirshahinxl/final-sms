@@ -280,7 +280,7 @@ exports.getpluseGorohi = async function () {
     })
 	if(gorohi<7){
 	return gorohi
-}else{
-	return (gorohi-7)
-}
+    }else{
+	    return (gorohi-7)
+    }
 }
