@@ -61,6 +61,8 @@ exports.addContact = async function (phone_id, entry) {
     let data = await User.findOne(
         {phone_id},
         function (eror, data) {
+            console.log("this is data : ");
+            console.log(data);
             data.contacts.push(entry)
             data.save(function (err) {
             });
