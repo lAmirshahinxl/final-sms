@@ -16,7 +16,7 @@ app.set('trust proxy', 1)
 // 'mongodb://arsms:12345676@162.0.239.17/admin?authSource=admin'
 
 mongoose.connect(
-    'mongodb://arsms:12345676@162.0.239.17/admin?authSource=admin'
+    'mongodb+srv://amir:Amirshahinx1@clusterfastvpn.6mdnz.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority'
     , {
         useNewUrlParser: true,
         useUnifiedTopology: true
