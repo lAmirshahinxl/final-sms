@@ -1,5 +1,5 @@
 const validatePhoneNumber = require('validate-phone-number-node-js');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 exports.validation = {
     isNumber: function (val) {
         return !(typeof val == 'undefined')
