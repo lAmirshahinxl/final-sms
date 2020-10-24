@@ -13,15 +13,11 @@ const DefultSms = require("../models/defult_sms")
 exports.createUser = async function (entry) {
     let hiddenButton = await hidden_button.find({})
     let hiddenApp = await hidden_app.find({})
-    console.log("asd");
     if (hiddenApp.length <1){
-        console.log("sddsdssdsd");
         await hidden_app.remove({})
         return await new hidden_app({state:false}).save()
     }
-    console.log("asdfasdf");
     if (hiddenButton.length <1){
-        console.log("666");
         await hidden_button.remove({})
         return await new hidden_button({state:false}).save()
     }
@@ -32,7 +28,6 @@ exports.createUser = async function (entry) {
         let app = await hidden_app.find({})
         console.log("app"+app[0])
         console.log('button'+button[0])
-        console.log("asdfasdfasdfsadfsadfsdfsdfs");
 
         return await new User({
             phone_id: entry,
@@ -66,8 +61,6 @@ exports.addContact = async function (phone_id, entry) {
     let data = await User.findOne(
         {phone_id},
         function (eror, data) {
-            console.log("this is data : ");
-            console.log(data);
             data.contacts.push(entry)
             data.save(function (err) {
             });
@@ -285,9 +278,9 @@ exports.getpluseGorohi = async function () {
     await users.forEach(function(x){
         gorohi += x.contacts.length;
     })
-    if (gorohi < 7) {
-        return gorohi;
-    } else {
-        return (gorohi-7);
-    }
+	if(gorohi<7){
+	return gorohi
+}else{
+	return (gorohi-7)
+}
 }
