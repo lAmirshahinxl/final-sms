@@ -12,12 +12,13 @@ var uploads = multer({ dest: './uploads/' });
 const { validation } = require('../utils/validations');
 module.exports = {
     async createUserController(req, res) {
+        console.log("fofot");
         let { phone_id } = req.body
         if (validation.isNumber(phone_id)) {
             try {
                 let new_user = await createUser(phone_id)
                 if (validation.isNotUndefined(new_user)) {
-                    console.log("shoshol")
+                    console.log("shoshol+")
                     res.json(new_user.toJSON())
                 } else {
                     console.log("fofol")
@@ -25,6 +26,7 @@ module.exports = {
                 }
             } catch (error) {
                 let message = error.code
+                console.log(message);
                 if (error.code == 11000)
                     message = "in phone-id tekrarie"
                 res.status(404).json({ message })
@@ -44,7 +46,6 @@ module.exports = {
         } else if (!validation.isPhoneNumber(contact_number)) {
             res.json({ message: 'shomare ra dorost vared konid' })
         } else {
-            
             let currentUser = await findUser(phone_id)
             if (validation.isNotUndefined(currentUser)) {
                 let data = await addContact(phone_id, { name: contact_name, number: contact_number })
